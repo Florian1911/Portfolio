@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero";
+import ProjectCard from "../components/ProjectCard";
+import Timeline from "../components/Timeline";
+
+const projects = [
+  { title: "magdle.com", stack: "Next.js, Tailwind, auth", href: "https://www.magdle.com/", note: "Plateforme de fiches IA" },
+  { title: "CAP", stack: "React, Maps, données académiques", href: "https://cap.fede.fpms.ac.be/" },
+  { title: "Carte FEDE", stack: "React, Leaflet, design system", href: "https://carte.fede.fpms.ac.be/" },
+];
+
+const links = [
+  { label: "GitHub", href: "https://github.com/Florian1911" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/florian-mangonaux" },
+  { label: "Email", href: "mailto:florian.mangonaux@example.com" },
+];
+
+const timeline = [
+  { date: "2025", label: "Stage / projets front React & Astro" },
+  { date: "2023-2024", label: "Étudiant smart grid, spécialisation web" },
+  { date: "2022", label: "Premiers projets front (JS/React)" },
+];
+---
+<BaseLayout>
+  <Hero links={links} />
+  <section class="grid">
+    {projects.map((p) => <ProjectCard {...p} />)}
+  </section>
+  <Timeline items={timeline} />
+</BaseLayout>
