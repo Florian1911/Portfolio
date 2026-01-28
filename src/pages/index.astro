@@ -1,31 +1,49 @@
----
+ï»¿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero";
 import ProjectCard from "../components/ProjectCard";
 import Timeline from "../components/Timeline";
 
 const projects = [
-  { title: "magdle.com", stack: "Next.js, Tailwind, auth", href: "https://www.magdle.com/", note: "Plateforme de fiches IA" },
-  { title: "CAP", stack: "React, Maps, données académiques", href: "https://cap.fede.fpms.ac.be/" },
-  { title: "Carte FEDE", stack: "React, Leaflet, design system", href: "https://carte.fede.fpms.ac.be/" },
+  { title: "magdle", stack: "Astro", href: "https://www.magdle.com/", note: "Game" },
+  { title: "Cap", stack: "React, auth", href: "https://cap.fede.fpms.ac.be/", note: "Shopping site for a student circle" },
+  { title: "Carte Fede", stack: "React, auth", href: "https://carte.fede.fpms.ac.be/", note:"Virtualization of a Fede card" },
+  {
+    title: "Intuitive Digital Signal Processing",
+    stack: "Application DSP",
+    note: "Electrical Engineering Project Â· Professor: Thierry Dutoit",
+  },
 ];
 
 const links = [
   { label: "GitHub", href: "https://github.com/Florian1911" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/florian-mangonaux" },
-  { label: "Email", href: "mailto:florian.mangonaux@example.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/florian-lefebvre-960415295/" },
+  { label: "CV", href: "/CV.pdf" },
+  { label: "Email", href: "mailto:flo02@live.be" },
 ];
 
-const timeline = [
-  { date: "2025", label: "Stage / projets front React & Astro" },
-  { date: "2023-2024", label: "Étudiant smart grid, spécialisation web" },
-  { date: "2022", label: "Premiers projets front (JS/React)" },
+const studies = [
+  {date: "2025 - Present", label: "MSc in Electrical Engineering, University of Mons (UMons)" },
+  { date: "2021 - 2025", label: "BSc in Civil Engineering, University of Mons (UMons)" },
+];
+
+const studentJobs = [
+  { date: "2024", label: "Private tutoring Â· Free University of Brussels (ULB)\nComputer science tutoring for a class of 10 students" },
 ];
 ---
 <BaseLayout>
   <Hero links={links} />
-  <section class="grid">
-    {projects.map((p) => <ProjectCard {...p} />)}
+  <br />
+  <section class="section">
+    <p class="eyebrow">Projects</p>
+    <div class="grid">
+      {projects.map((p) => <ProjectCard {...p} />)}
+    </div>
   </section>
-  <Timeline items={timeline} />
+  <div class="section">
+    <Timeline title="Education" items={studies} />
+  </div>
+  <div class="section">
+    <Timeline title="Student jobs" items={studentJobs} />
+  </div>
 </BaseLayout>
